@@ -1,0 +1,2 @@
+public class testlocation {
+}
