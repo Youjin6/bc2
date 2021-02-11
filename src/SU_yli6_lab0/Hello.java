@@ -1,5 +1,5 @@
 /*
- * Yucong L
+ * Yucong Li
  * CPSC 5002, Seattle University
  * This is free and unencumbered software released into the public domain.
  */
