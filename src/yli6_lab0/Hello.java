@@ -8,7 +8,7 @@ package yli6_lab0;
 /**
  * This is a sample program that will print "Hello, World!" to screen.
  *
- * @author Yucong L
+ * @author Yucong Li
  * @version 1.0
  */
 public class Hello {
