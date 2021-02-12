@@ -34,7 +34,9 @@ public class TwoDimArray {
 
       System.out.print("\nHow many rows (something between 1 and 10)? ");
       number = keyboard.nextInt();
+      keyboard.close();
       return number;
+
    }
 
    public static void showArray(int number) {
@@ -81,9 +83,6 @@ public class TwoDimArray {
          leftDiagonal += twoDimArray[row][number - 1 - row];
       }
       System.out.printf("%5d", leftDiagonal);
-
-
-
 
 
       // Calculates the sum of each column
