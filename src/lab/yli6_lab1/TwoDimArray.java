@@ -1,4 +1,4 @@
-package lab.yli6_lab0;
+package lab.yli6_lab1;
 
 import java.util.Random;
 import java.util.Scanner;
