@@ -37,6 +37,7 @@ public class User {
 
     /**
      * The getDieValue method returns a User object's die value.
+     *
      * @return The value in the dieValue field.
      */
     public int getDieValue() {
