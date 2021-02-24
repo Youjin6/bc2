@@ -1,4 +1,5 @@
-package yli6_lab4;
+package yli6_lab5;
+
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,7 +12,7 @@ import java.util.Scanner;
  * @author Youjin
  * @version 1.0
  */
-public class Lab4 {
+public class Lab5 {
     /**
      * Test each method
      *
@@ -24,6 +25,10 @@ public class Lab4 {
         printMessage();
         System.out.println(readFromFile());
         printBye();
+
+        System.out.println();
+
+
 
     }
 
@@ -59,7 +64,7 @@ public class Lab4 {
      */
     public static LinkedList readFromFile() throws FileNotFoundException {
         // hold the filename
-        final String FILE_NAME = "lab4.dat";
+        final String FILE_NAME = "lab5.dat";
 
         // Creates a File object
         File file = new File(FILE_NAME);
@@ -73,7 +78,10 @@ public class Lab4 {
         // Adds the integers to the linked list
         while (inputFile.hasNext()) {
             myList.insertInOrder(inputFile.nextInt());
+
         }
+        myList.removeDuplicates();
+        System.out.println(myList);
 
         // Close the Scanner
         inputFile.close();
