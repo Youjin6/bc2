@@ -43,7 +43,7 @@ public class LinkedList {
      * @param value A integer
      */
     public void insertInOrder(int value) {
-        // if the linkedList has no node
+        // if the linkedList points to null
         if (head == null) {
             head = new Node(value);
             return;
@@ -59,9 +59,9 @@ public class LinkedList {
             return;
         }
 
-        // more than one node in the linkedList
-        Node current = head;
-        Node prev = null;
+        // More than one node in the linkedList
+        Node current = head; // a current node reference
+        Node prev = null;    // a previous node reference
         while (current != null && value > current.value) {
             prev = current;
             current = current.next;
@@ -69,13 +69,13 @@ public class LinkedList {
 
         // New element goes at beginning
         if (current == head) {
-            head = new Node(value,current);
+            head = new Node(value, current);
             return;
         }
 
         // Add to the second position of list
         if (prev == head) {
-            head.next = new Node(value,current);
+            head.next = new Node(value, current);
             return;
         }
 
@@ -86,10 +86,9 @@ public class LinkedList {
 
         // Add to any other places
         else {
-            prev.next = new Node(value,current);
+            prev.next = new Node(value, current);
         }
     }
-
 
     /**
      * The toString method computes the string
@@ -103,7 +102,7 @@ public class LinkedList {
         // User node to walk down the linked list
         Node node = head;
         while (node != null) {
-            strBuilder.append(node.value + "\n");
+            strBuilder.append(node.value).append("\n");
             node = node.next;
         }
         return strBuilder.toString();
