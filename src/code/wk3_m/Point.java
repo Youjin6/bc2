@@ -1,28 +1,31 @@
 package code.wk3_m;
 
 public class Point {
-    double x;
-    double y;
-    double distance;
+   double x;
+   double y;
 
-    @Override
-    public String toString() {
-        return "Point{" +
-                "x=" + x +
-                ", y=" + y +
-                ", distance=" + distance +
-                '}';
+   public Point(double x, double y) {
+       this.x = x;
+       this.y = y;
+   }
+
+   public double calcDistance(Point p) {
+       return Math.sqrt(Math.pow(x - p.getX(), 2) + Math.pow(y - p.getY(), 2));
+   }
+
+    public double getX() {
+        return x;
     }
 
-    public Point(double x, double y) {
+    public void setX(double x) {
         this.x = x;
-        this.y = y;
     }
 
-    public double CalDistance(Point point1, Point point2) {
-        distance =
-                Math.sqrt(Math.pow(point1.x - point2.x, 2)
-                        + Math.pow((point1.y - point2.y), 2));
-        return distance;
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
     }
 }

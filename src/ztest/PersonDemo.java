@@ -2,12 +2,14 @@ package ztest;
 
 public class PersonDemo {
     public static void main(String[] args) {
-        Person person1 = new Person();
-        person1.setAge(20);
+        Person person1 = new Person("Y", 18);
+        System.out.println("---------PRINT EAT METHOD--------------");
+        person1.eatChina();
+        System.out.println();
 
-        Person person2 = new Person();
-        person2.setAge(10);
+        System.out.println("---------PRINT EAT KOREA---------");
+        person1.eatKorea("长");
 
-        System.out.println(person1.getAge());
+
     }
 }
