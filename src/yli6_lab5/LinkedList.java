@@ -38,12 +38,16 @@ public class LinkedList {
       }
    }
 
+   /**
+    * Removes the duplicated values in the list
+    */
    public void removeDuplicates() {
       if (head == null || head.next == null) {
          return;
       }
-      Node cur = head.next;
-      Node prev = head;
+
+      Node cur = head.next; // current value
+      Node prev = head;     // previous value
 
       while (cur != null) {
          while (cur != null && prev.value == cur.value) {
@@ -74,11 +78,10 @@ public class LinkedList {
 
       // just one node in the linkedList
       if (head.next == null) {
-         if (value >= head.value) {
+         if (value >= head.value)
             head.next = new Node(value);
-         } else {
+          else
             head = new Node(value, head);
-         }
          return;
       }
 
@@ -89,28 +92,18 @@ public class LinkedList {
          prev = current;
          current = current.next;
       }
-
-      // New element goes at beginning
       if (current == head) {
          head = new Node(value, current);
          return;
       }
-
-      // Add to the second position of list
       if (prev == head) {
          head.next = new Node(value, current);
          return;
       }
-
-      // Add to end of existing list
-      if (current == null) {
+      if (current == null)
          prev.next = new Node(value);
-      }
-
-      // Add to any other places
-      else {
+      else
          prev.next = new Node(value, current);
-      }
    }
 
    /**
@@ -131,5 +124,4 @@ public class LinkedList {
       }
       return strBuilder.toString();
    }
-
 }

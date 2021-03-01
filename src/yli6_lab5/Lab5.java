@@ -20,11 +20,12 @@ public class Lab5 {
     * @throws FileNotFoundException
     */
    public static void main(String[] args) throws FileNotFoundException {
-      // Call printIntro readFromFile and printBye method
+      // test methods
       printIntro();
       readFromFile();
       printBye();
    }
+
 
    /**
     * Prints out the introduction message to the standard output
@@ -77,15 +78,14 @@ public class Lab5 {
       }
       System.out.println();
 
-      System.out.println("Reading file, inserting nodes.. done.\n" +
-            "Linked list contents after reading: ");
+      // Call printInsert
+      printInsert();
 
-      // Adds the integers to the linked list
+      // Prints out the list
       System.out.println(myList);
 
       // Removing duplicates from the linked list
-      System.out.println("Removing duplicates from the linked list.. done.\n"
-            + "Linked list contents with no duplicates: ");
+      printRemove();
       myList.removeDuplicates();
 
       // Prints out the list
@@ -95,5 +95,23 @@ public class Lab5 {
       inputFile.close();
 
       return myList;
+   }
+
+
+   /**
+    * Prints out the inserting message
+    */
+   public static void printInsert() {
+      System.out.println("Reading file, inserting nodes.. done.\n" +
+              "Linked list contents after reading: ");
+   }
+
+
+   /**
+    * Prints out the removing message
+    */
+   public static void printRemove() {
+      System.out.println("Removing duplicates from the linked list.. done.\n"
+              + "Linked list contents with no duplicates: ");
    }
 }

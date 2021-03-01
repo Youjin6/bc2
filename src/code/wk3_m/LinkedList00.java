@@ -15,12 +15,12 @@ public class LinkedList00 {
         if (head == null)
             head = new Node(d, null);
 
-        // 若不为空
+            // 若不为空
         else {
             // node 从头开始head 开始找, 扎到最后一个节点)
             // 注意: 不能是最后一个节点的 next 的指向, null就没办法连上串了
             node = head;
-            while(node.next != null)
+            while (node.next != null)
                 // node 向后
                 node = node.next;
 
@@ -65,5 +65,19 @@ public class LinkedList00 {
     }
 
     private Node head;
+
+    public int countValue(int d) {
+        int count = 0;
+        if (head == null) {
+            return 0;
+        } else {
+            Node node = head;
+            while (node != null && node.value == d) {
+                count++;
+                node = node.next;
+            }
+            return count;
+        }
+    }
 
 }
