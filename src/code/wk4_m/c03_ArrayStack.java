@@ -10,12 +10,12 @@ public class c03_ArrayStack {
     // 构造器传入 array 的 capacity
     public c03_ArrayStack(int capacity) {
         stack = new int[capacity];
-        top = 0;
+        top = -1;
     }
 
     // empty
     public boolean empty() {
-        return top == 0;
+        return top == -1;
     }
 
     // push
@@ -23,8 +23,8 @@ public class c03_ArrayStack {
         if (top == stack.length) {
             throw new StackOverflowError();
         } else {
-            stack[top] = x;
             top++;
+            stack[top] = x;
         }
     }
 
@@ -33,7 +33,10 @@ public class c03_ArrayStack {
         if (empty()) {
             throw new EmptyStackException();
         } else {
-            return stack[--top];
+            int val = stack[top];
+            top--;
+            return val;
+
         }
     }
 
@@ -52,5 +55,9 @@ public class c03_ArrayStack {
                 "stack=" + Arrays.toString(stack) +
                 ", top=" + top +
                 '}';
+    }
+
+    public static void main(String[] args) {
+
     }
 }
