@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../zuo_git/algorithm-primary/algorithm-primary.iml" filepath="$PROJECT_DIR$/../zuo_git/algorithm-primary/algorithm-primary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../zuo_git/algorithmbasic2020/algorithmbasic2020.iml" filepath="$PROJECT_DIR$/../zuo_git/algorithmbasic2020/algorithmbasic2020.iml" />
       <module fileurl="file://$PROJECT_DIR$/bootCamp2.iml" filepath="$PROJECT_DIR$/bootCamp2.iml" />
       <module fileurl="file://$PROJECT_DIR$/../lian/lian.iml" filepath="$PROJECT_DIR$/../lian/lian.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../algo/zuo_p/zuo_p.iml" filepath="$PROJECT_DIR$/../algo/zuo_p/zuo_p.iml" />
     </modules>
   </component>
 </project>

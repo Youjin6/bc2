@@ -3,7 +3,7 @@
  * CPSC 5002, Seattle University
  * This is free and unencumbered software released into the public domain.
  */
-package yli6_P2;
+package yli6_p2EC;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -96,4 +96,6 @@ public class P2MessageGen {
             this.posn = posn;
         }
     }
+
+
 }

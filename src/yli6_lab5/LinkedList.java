@@ -104,6 +104,22 @@ public class LinkedList {
          prev.next = new Node(value);
       else
          prev.next = new Node(value, current);
+
+//      if (head == null) {
+//         head = new Node(value);
+//      } else {
+//         Node curr = head;
+//         Node prev = null;
+//         while (curr != null && prev.value < value) {
+//            prev = curr;
+//            curr = curr.next;
+//         }
+//         if (prev == null) {
+//            head = new Node(value, curr);
+//         }else {
+//            prev.next = new Node(value, curr);
+//         }
+//      }
    }
 
    /**
@@ -123,5 +139,14 @@ public class LinkedList {
          node = node.next;
       }
       return strBuilder.toString();
+   }
+
+   public static void main(String[] args) {
+      LinkedList list = new LinkedList();
+      list.insertInOrder(1);
+      list.insertInOrder(2);
+      list.insertInOrder(3);
+      list.insertInOrder(0);
+      System.out.println(list);
    }
 }
