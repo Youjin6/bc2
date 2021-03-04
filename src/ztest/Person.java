@@ -5,6 +5,8 @@ public class Person {
    private int age;
    private int count;
 
+   Person(int number) {
+   }
    public void eatChina() {
       System.out.println(name + " is eating ....in  China(name)");
       eatKorea(name);

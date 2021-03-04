@@ -1,4 +1,4 @@
-package yli6_p2EC;
+package yli6_P2v2;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -22,19 +22,29 @@ public class SecretMessage {
     public static void main(String[] args) throws FileNotFoundException {
 
         String repeat;      // holds yes or no
+        String filename;    // holds the filename
+        MessageDecoder decoder;
 
         // Create a Scanner object
         Scanner keyboard = new Scanner(System.in);
-
 
         // Call printIntro method.
         printIntro();
 
         // Repeat the game as many times as users want
         do {
-            getMultiMessage(keyboard);
+
+            // Gets the valid filename
+            do {
+                filename = getFilename(keyboard);
+
+            } while (!isValidFile(filename));
+            // Call getCharAndNum
+            decoder = getCharAndNum(filename);
+
+            System.out.println("Decoded: " + decoder);
             // Ask users if they want to repeat the game
-            System.out.print("Would you like to try again? (no to exit): ");
+            System.out.print("\nWould you like to try again? (no to exit): ");
             repeat = keyboard.nextLine();
         } while (!"no".equalsIgnoreCase(repeat));
 
@@ -46,42 +56,6 @@ public class SecretMessage {
 
     }
 
-    public static ArrayList<MessageDecoder> getMultiMessage(Scanner keyboard) throws FileNotFoundException {
-        int count; // counts the number of files
-
-        String filename;    // holds the filename
-        ArrayList<MessageDecoder> messageDecoders = new ArrayList<>();
-
-
-        ArrayList<String> fileList = new ArrayList<>();
-
-        count = 0;
-        // Gets the valid filename
-        do {
-            filename = getFilename(keyboard);
-            fileList.add(count, filename);
-
-            messageDecoders.add(count, getCharAndNum(filename));
-            count++;
-        } while (!isValidFile(filename));
-        // Call getCharAndNum
-
-        do {
-            filename = getAnotherFilename(keyboard);
-            if (isValidFile(filename)) {
-                fileList.add(count, filename);
-                messageDecoders.add(count, getCharAndNum(filename));
-                count++;
-            }
-        } while (!filename.equals("-1"));
-
-        RearrangeMsg rearrangeMsg = new RearrangeMsg();
-        rearrangeMsg.setMsgList(messageDecoders);
-        rearrangeMsg.Rearrange();
-
-
-        return messageDecoders;
-    }
 
     /**
      * Get each character and number from the plain text message.
@@ -116,7 +90,6 @@ public class SecretMessage {
             //Adds into decoder
             decoder.insertInOrder(letter, num);
         }
-
         return decoder;
     }
 
@@ -137,17 +110,7 @@ public class SecretMessage {
 
     }
 
-    public static String getAnotherFilename(Scanner keyboard) {
-        String filename; // holds the filename;
 
-        // Prompts users for the filename
-        System.out.print("Enter Another secret file name (or blank): ");
-        filename = keyboard.nextLine();
-        if (filename.equals(""))
-            return "-1";
-        else
-            return filename;
-    }
 
     /**
      * Checks to see that the user-specified file name refers to a valid
