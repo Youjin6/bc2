@@ -1,4 +1,4 @@
-package yli6_P2v2;
+package yli6_P2;
 
 import java.io.File;
 import java.io.FileNotFoundException;

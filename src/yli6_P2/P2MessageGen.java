@@ -3,7 +3,7 @@
  * CPSC 5002, Seattle University
  * This is free and unencumbered software released into the public domain.
  */
-package yli6_P2v2;
+package yli6_P2;
 
 import java.io.File;
 import java.io.FileNotFoundException;

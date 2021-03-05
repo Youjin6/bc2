@@ -1,4 +1,4 @@
-package yli6_P2v2;
+package yli6_P2;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -68,6 +68,7 @@ public class SecretMessage {
         int num;        // hold the number
         String sub;     // a sub array to hold each line of the raw message
         String numbers; // String type number
+        final int NUM_POSITION = 2;
 
         // Creates a MessageDecoder instance
         MessageDecoder decoder = new MessageDecoder();
@@ -85,7 +86,7 @@ public class SecretMessage {
             // Gets the character
             letter = sub.charAt(0);
             // Gets the number
-            numbers = sub.substring(2);
+            numbers = sub.substring(NUM_POSITION);
             num = Integer.parseInt(numbers);
             //Adds into decoder
             decoder.insertInOrder(letter, num);

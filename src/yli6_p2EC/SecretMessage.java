@@ -22,10 +22,8 @@ public class SecretMessage {
     public static void main(String[] args) throws FileNotFoundException {
 
         String repeat;      // holds yes or no
-
         // Create a Scanner object
         Scanner keyboard = new Scanner(System.in);
-
 
         // Call printIntro method.
         printIntro();
@@ -34,8 +32,9 @@ public class SecretMessage {
         do {
             getMultiMessage(keyboard);
             // Ask users if they want to repeat the game
-            System.out.print("Would you like to try again? (no to exit): ");
+            System.out.print("\nWould you like to try again? (no to exit): ");
             repeat = keyboard.nextLine();
+            System.out.println();
         } while (!"no".equalsIgnoreCase(repeat));
 
         // Prints out goodbye message
@@ -46,41 +45,39 @@ public class SecretMessage {
 
     }
 
-    public static ArrayList<MessageDecoder> getMultiMessage(Scanner keyboard) throws FileNotFoundException {
-        int count; // counts the number of files
+    public static void getMultiMessage(Scanner keyboard)
+            throws FileNotFoundException {
+        int count;              // counts the number of files
+        String filename;        // holds the filename
+        count = 0;              // count the number of file
 
-        String filename;    // holds the filename
+        // Creates an ArrayList to store the messageDecoder objects
         ArrayList<MessageDecoder> messageDecoders = new ArrayList<>();
 
-
-        ArrayList<String> fileList = new ArrayList<>();
-
-        count = 0;
         // Gets the valid filename
         do {
             filename = getFilename(keyboard);
-            fileList.add(count, filename);
-
-            messageDecoders.add(count, getCharAndNum(filename));
-            count++;
         } while (!isValidFile(filename));
-        // Call getCharAndNum
 
+        // Gets the first file
+        messageDecoders.add(count, getCharAndNum(filename));
+        count++;
+
+        // Get other files
         do {
             filename = getAnotherFilename(keyboard);
-            if (isValidFile(filename)) {
-                fileList.add(count, filename);
-                messageDecoders.add(count, getCharAndNum(filename));
-                count++;
+            if (!filename.equals("")) {
+                if (isValidFile(filename)) {
+                    messageDecoders.add(count, getCharAndNum(filename));
+                    count++;
+                }
             }
-        } while (!filename.equals("-1"));
+        } while (!filename.equals(""));
 
+        // Creates a rearrangeMsg object
         RearrangeMsg rearrangeMsg = new RearrangeMsg();
         rearrangeMsg.setMsgList(messageDecoders);
         rearrangeMsg.Rearrange();
-
-
-        return messageDecoders;
     }
 
     /**
@@ -89,12 +86,13 @@ public class SecretMessage {
      * @param filename The filename
      * @throws FileNotFoundException File not found
      */
-    public static MessageDecoder getCharAndNum(String filename) throws FileNotFoundException {
+    public static MessageDecoder getCharAndNum(String filename)
+            throws FileNotFoundException {
         char letter;    // holds the character
         int num;        // hold the number
         String sub;     // a sub array to hold each line of the raw message
         String numbers; // String type number
-
+        final int NUM_POSITION = 2;
         // Creates a MessageDecoder instance
         MessageDecoder decoder = new MessageDecoder();
 
@@ -111,12 +109,11 @@ public class SecretMessage {
             // Gets the character
             letter = sub.charAt(0);
             // Gets the number
-            numbers = sub.substring(2);
+            numbers = sub.substring(NUM_POSITION);
             num = Integer.parseInt(numbers);
             //Adds into decoder
             decoder.insertInOrder(letter, num);
         }
-
         return decoder;
     }
 
@@ -132,21 +129,16 @@ public class SecretMessage {
         // Prompts users for the filename
         System.out.print("Enter secret file name: ");
         filename = keyboard.nextLine();
-
         return filename;
 
     }
 
     public static String getAnotherFilename(Scanner keyboard) {
         String filename; // holds the filename;
-
         // Prompts users for the filename
         System.out.print("Enter Another secret file name (or blank): ");
         filename = keyboard.nextLine();
-        if (filename.equals(""))
-            return "-1";
-        else
-            return filename;
+        return filename;
     }
 
     /**
@@ -158,7 +150,6 @@ public class SecretMessage {
      * @return true if file exists on disk and is not a directory
      */
     private static boolean isValidFile(String fName) {
-
         File path = new File(fName);
         boolean isValid = path.exists() && !path.isDirectory();
         if (!isValid) {
