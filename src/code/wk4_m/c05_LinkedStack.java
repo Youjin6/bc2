@@ -73,4 +73,5 @@ public class c05_LinkedStack {
         linkedStack.push(1);
         System.out.println(linkedStack);
     }
+
 }
