@@ -6,6 +6,7 @@ package code.wk4_wed;
 
 class ArrayQueue
 {
+    // 用数组来实现的 queue, 前后, size
     private String [ ] q; // Holds queue elements
     private int front;    // Next item to be removed
     private int rear;     // Next slot to fill
@@ -50,9 +51,10 @@ class ArrayQueue
        {
            // Add to rear
            size ++;
-           q[rear] = s;
-           rear ++;
-           if (rear == q.length) rear = 0;           
+           q[rear] = s;  // 尾进
+           rear ++; // 头不动, 尾巴一直增长
+           if (rear == q.length) // rear 出界了, rear 回去头了.
+               rear = 0;
        }
     }
     
@@ -91,11 +93,11 @@ class ArrayQueue
            String value = q[front];
 			  
 			  // Facilitate garbage collection  
-           q[front] = null;     
+           q[front] = null;     //头部 front 指向 null
 			  
            // Update front
-           front++;
-           if (front == q.length) front = 0;
+           front++; // front 往后挪一个
+           if (front == q.length) front = 0; // 当 front 出界了. 就回去 0
 			         
            return value;        
         }

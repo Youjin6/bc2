@@ -14,7 +14,7 @@ import java.util.Scanner;
  */
 public class Lab5 {
    /**
-    * Test each method
+    * test each method
     *
     * @param args A string array containing the command line arguments.
     * @throws FileNotFoundException

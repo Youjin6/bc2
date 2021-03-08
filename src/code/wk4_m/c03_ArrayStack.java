@@ -45,20 +45,25 @@ public class c03_ArrayStack {
         if (empty()) {
             throw new EmptyStackException();
         } else {
-            return stack[top - 1];
+            return stack[top];
         }
     }
 
     @Override
     public String toString() {
-        return "ArrayStack{" +
+        return "Stack{" +
                 "stack=" + Arrays.toString(stack) +
                 ", top=" + top +
                 '}';
     }
 
     public static void main(String[] args) {
-
+        c03_ArrayStack stack = new c03_ArrayStack(5);
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.pop();
+        System.out.println(stack);
     }
 
 }

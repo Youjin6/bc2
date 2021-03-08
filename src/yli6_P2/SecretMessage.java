@@ -14,7 +14,7 @@ import java.util.Scanner;
  */
 public class SecretMessage {
     /**
-     * Test and repeat the program and many time as the users want.
+     * test and repeat the program and many time as the users want.
      *
      * @param args A string array containing the command line arguments.
      * @throws FileNotFoundException File not found
