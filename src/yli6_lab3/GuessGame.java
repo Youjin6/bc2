@@ -24,6 +24,7 @@ public class GuessGame {
     public GuessGame(int rangeMinimum, int rangeMaximum) {
         this.rangeMinimum = rangeMinimum;
         this.rangeMaximum = rangeMaximum;
+        newTarget();
     }
 
 

@@ -9,6 +9,6 @@ class QueueOverFlowException extends RuntimeException
 {    
 }
 
-class EmptyQueueException extends RuntimeException
+ class EmptyQueueException extends RuntimeException
 {    
 }

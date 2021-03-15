@@ -19,6 +19,10 @@ public class Stack {
         top = -1;
     }
 
+    public Stack() {
+
+    }
+
     /**
      * The empty method checks for an empty stack.
      *

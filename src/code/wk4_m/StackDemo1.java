@@ -1,6 +1,7 @@
 package code.wk4_m;
 
 import java.util.*;
+import java.util.Stack;
 
 /**
     This program demonstrates the java.util.Stack class
@@ -11,7 +12,7 @@ public class StackDemo1
     public static void main(String [] args)
     {
         // Create a stack of strings and add some names
-        Stack<String> stack = new Stack<String>();
+        Stack<String> stack = new Stack<>();
         String [ ] names = {"Al", "Bob", "Carol"};
         System.out.println("Pushing onto the stack the names:");
         System.out.println("Al Bob Carol");

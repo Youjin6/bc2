@@ -13,7 +13,7 @@ public class TicTacToeTest {
         int inputCol;
 
         System.out.println("Welcome to TicTacToe (add more info about how to " +
-                "play the game)");
+                "player1Play the game)");
         game.printBoard();
 
         do {

@@ -40,8 +40,6 @@ public class Lab3 {
             // Call getNum method
             number = getNum(MIN, MAX);
 
-            // Call guessGame's newTarget method
-            guessGame.newTarget();
 
             // Process the users' guess
             while (!guessGame.guess(number)) {
@@ -55,8 +53,8 @@ public class Lab3 {
             // Displays out how many time the users guessed
             System.out.println("you guessed " + guessGame.count + " times.");
 
-            // Asks the user if they want to play the game again.
-            System.out.print("\nReady to play again? (no to quit) ");
+            // Asks the user if they want to player1Play the game again.
+            System.out.print("\nReady to player1Play again? (no to quit) ");
             repeat = keyboard.nextLine();
 
         } while (!repeat.equalsIgnoreCase("no"));

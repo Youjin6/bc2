@@ -11,7 +11,8 @@ public class StackDemo2
 {    
     public static void main(String [] args)
     {
-       Stack<Integer> intStack = new Stack<Integer>();
+        java.util.Stack<Integer> intStack = new java.util.Stack<>();
+
        
        // Push some numbers onto the stack
        for (int k = 1; k < 10; k++)

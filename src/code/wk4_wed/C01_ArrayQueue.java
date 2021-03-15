@@ -1,54 +1,98 @@
 package code.wk4_wed;
 
-public class C01_ArrayQueue {
+/*
+ * 技能点:
+ *  1. rear 和 front 的初始化: 0
+ *  2. 在enqueue和dequeue的 front++ 和 rear++ 之后判断
+ *           if (front == q.length) front = 0;
+ *           if (rear == q.length) rear = 0;
+ *  3. 注意: 当append进去数据了之后, 这个数组就写好了, dequeue不会remove掉数组里的数据只是
+ *  把front 和rear的指向变了, 因此打印这个queue(数组)的时候， 还是会把他们全部打印出来，
+ *
+ *
+ * bug:
+ * 在dequeue, 出去一个front 就要释放一个地址,
+ * 1. /* 这一步漏掉了， 要把当前 q[front] 上的 地址释放掉.
+ * */
 
-    private int size;
+public class C01_ArrayQueue {
     private int front;
     private int rear;
-    private String[] queue; /* 定义了一个 queue 的数组, heap 还没开辟空间 */
+    private int size;
+    private String[] q;
 
-    public C01_ArrayQueue(int capacity) {
-        /* 构造器里新建了一个数组 */
-        queue = new String[capacity];
+    C01_ArrayQueue(int capacity) {
+        q = new String[capacity];
         front = 0;
         rear = 0;
         size = 0;
     }
 
-    public int capacity() {
-        return queue.length;
+    public boolean empty() {
+        return size == 0;
     }
 
     public void enqueue(String s) {
-        if (size == queue.length) {
+        if (size == q.length) {
             throw new QueueOverFlowException();
         } else {
-            // Add to rear
-            size++; // 先增加 size
-            queue[rear] = s; // 赋值
-            rear++; // rear 一直是下一次要放数字的地方. rear++
-            if (rear == queue.length)  /* 这里注意, 可以在这里来一次判断, 如果rear 到头了,
-            就返回他的初始值*/
+            size++;
+            q[rear++] = s;
+            if (rear == q.length) {
                 rear = 0;
+            }
         }
-    }
-
-
-    public boolean empty() {
-        return size == 0;
     }
 
     public String dequeue() {
         if (empty()) {
             throw new EmptyQueueException();
-        }
-        size--;
-        String value = queue[front];
-        queue[front] = null; // front指向空是必要的么?
-        front++;
-        if (front == queue.length) front = 0;
-        return value;
+        } else {
+            size--;
+            String value = q[front];
+            q[front] = null;  /* 这一步漏掉了， 要把当前 q[front] 上的 地址释放掉 */
+            front++;
+            if (front == q.length) {
+                front = 0;
 
+            }
+            return value;
+        }
     }
 
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("front: " + front + "; ");
+        stringBuilder.append("rear: " + rear + "\n");
+
+        for (int i = 0; i < q.length; i++) {
+            if (q[i] != null) {
+                stringBuilder.append(i + " " + q[i]).append("\n");
+            } else {
+                stringBuilder.append(i + " ?").append("\n");
+            }
+        }
+        return stringBuilder.toString();
+    }
+
+    public int getSize() {
+        return size;
+    }
+    public int capacity(){
+        return q.length;
+    }
+
+
+    public static void main(String [] args)
+    {
+        C01_ArrayQueue queue = new C01_ArrayQueue(3);
+        queue.enqueue("h");
+        queue.enqueue("f");
+        queue.enqueue("q");
+        System.out.println(queue);
+        queue.dequeue();
+        queue.dequeue();
+        System.out.println(queue);
+    }
 }

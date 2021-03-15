@@ -113,7 +113,7 @@ public class DiceGame {
             countUser = 0;
 
             // Ask the users if they want to repeat
-            System.out.print("\nReady to play? (no to quit) ");
+            System.out.print("\nReady to player1Play? (no to quit) ");
             quit = keyboard.nextLine();
 
         } while (!NO.equalsIgnoreCase(quit));

@@ -131,12 +131,27 @@ class ArrayQueue
       for (int k = 0; k < q.length; k++)
       {
           if (q[k] != null)
-             sBuilder.append(k + " " + q[k]);
+             sBuilder.append(k + " " + q[k] + " ");
           else 
              sBuilder.append(k + " ?");
           if (k != q.length - 1)
 			    sBuilder.append("\n");
       }
       return sBuilder.toString();        
-    }    
+    }
+    public static void main(String[] args) {
+        C01_ArrayQueue queue = new C01_ArrayQueue(3);
+        queue.enqueue("a");
+        queue.enqueue("b");
+        int size = queue.getSize();
+        String s;
+
+        queue.enqueue("c");
+        System.out.println(queue);
+
+        s = queue.dequeue();
+        System.out.println(s);
+        System.out.println(queue);
+    }
+
 }
