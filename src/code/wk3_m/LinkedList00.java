@@ -7,7 +7,7 @@ public class LinkedList00 {
     }
 
     //
-    public void append(int d) {
+    public void append(String d) {
         // stack 里面有一个 node 的 reference, 他是 游历的人
         Node node;
 
@@ -40,25 +40,25 @@ public class LinkedList00 {
         return sb.toString();
     }
 
-    // boolean search()
-    public boolean search(int d) {
-        // 用 node 记录 head 的指向
-        Node node = head;
-
-        // node search到 null 停(注意,不能 search 到倒数第一个停止, 这样子就会漏掉最后一个
-        while (node != null) {
-            if (node.value == d)
-                return true;
-            node = node.next;
-        }
-        return false;
-    }
+//    // boolean search()
+//    public boolean search(int d) {
+//        // 用 node 记录 head 的指向
+//        Node node = head;
+//
+//        // node search到 null 停(注意,不能 search 到倒数第一个停止, 这样子就会漏掉最后一个
+//        while (node != null) {
+//            if (node.value == d)
+//                return true;
+//            node = node.next;
+//        }
+//        return false;
+//    }
 
     private class Node {
-        public int value;
+        public String value;
         public Node next;
 
-        public Node(int value, Node next) {
+        public Node(String value, Node next) {
             this.value = value;
             this.next = next;
         }
@@ -66,7 +66,7 @@ public class LinkedList00 {
 
     private Node head;
 
-    public int countValue(int d) {
+    public int countValue(String d) {
         int count = 0;
         if (head == null) {
             return 0;
@@ -80,4 +80,52 @@ public class LinkedList00 {
         }
     }
 
+    public boolean empty() {
+        return head == null;
+    }
+
+    public String removeLast() throws Exception {
+        String v;
+        if (empty()) {
+            throw new Exception("Empty");
+        } else if (head.next == null) {
+            v = head.value;
+            head = null;
+            return v;
+        } else {
+            Node p = head;
+            while (p.next.next != null) {
+                p = p.next;
+            }
+            v = p.next.value;
+            p.next = null;
+            return v;
+        }
+    }
+
+    public String removeLast2() {
+        String data = null;
+        Node ptr = head;
+        Node prev = null;
+        if (!empty()) {
+            while (ptr.next != null) {
+                prev = ptr;
+                ptr = ptr.next;
+            }
+            data = prev.value;
+            prev.next = null;
+        }
+        return data;
+    }
+
+    public static void main(String[] args) throws Exception {
+        LinkedList00 L = new LinkedList00();
+        L.append("a");
+        L.append("B" +
+                "");
+
+
+        System.out.println(L.removeLast2());
+        System.out.println(":" + L);
+    }
 }

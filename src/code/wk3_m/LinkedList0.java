@@ -39,23 +39,27 @@ public class LinkedList0 {
     //Reference to the first node in the list
 
     // 在 stack 里造一个 Node, 叫 first
-    private Node first = null;
+    private Node head = null;
+
+    public boolean empty() {
+        return head == null;
+    }
 
     /**
      * Constructor.
      * Builds a linked list.
      */
-	 // 大类: linkedList0
+    // 大类: linkedList0
     public LinkedList0() {
         // Incrementally build the list
         // Chuck Debby Elaine Free
 
         // 类属性是: 几个节点
         // 注意: 一般存放数据的东西有 1. primitive variable 2. 引用变量(可以存放多个属性)
-        first = new Node("Debby");
-        first.next = new Node("Elaine");
-        first.next.next = new Node("Fred");
-        first = new Node("Chuck", first);
+        head = new Node("Debby");
+        head.next = new Node("Elaine");
+        head.next.next = new Node("Fred");
+        head = new Node("Chuck", head);
 
         String[] names = {"Bob", "Allan"};
 
@@ -63,7 +67,7 @@ public class LinkedList0 {
         // front of the linked list to build the list
         // Allan Bob Chuck Debby Elaine Fred
         for (String s : names)
-            first = new Node(s, first);
+            head = new Node(s, head);
     }
 
     /**
@@ -73,22 +77,25 @@ public class LinkedList0 {
 
     // 类方法 print
     public void print() {
-        Node ref = first;
+        Node ref = head;
         while (ref != null) {
             System.out.print(ref.value + " ");
             ref = ref.next;
         }
     }
 
+
+
+
     /**
      * The main method creates the linked list
      * and invokes its print method.
      */
-
     public static void main(String[] args) {
         LinkedList0 ll = new LinkedList0();
         String str = "The contents of the list are:";
         System.out.println(str);
         ll.print();
+
     }
 }

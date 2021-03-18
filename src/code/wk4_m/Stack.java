@@ -21,6 +21,7 @@ public class Stack {
         top = 0;
     }
 
+
     /**
      * The empty method checks for an empty stack.
      *

@@ -1,5 +1,7 @@
 package code.wk4_wed;
 
+import code.wk3_m.LinkedList0;
+
 /**
    This class implements a queue based 
 	on linked lists.
@@ -90,6 +92,7 @@ public class LinkedQueue
            return value;
        }
     }
+
     
     /**
        The toString method concatenates all strings
@@ -97,7 +100,7 @@ public class LinkedQueue
        of the contents of the queue.        
        @return string representation of this queue.
     */
-    
+    @Override
     public String toString()
     {
        StringBuilder sBuilder = new StringBuilder();
