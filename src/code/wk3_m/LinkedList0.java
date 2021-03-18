@@ -1,5 +1,8 @@
 package code.wk3_m;
 
+import java.util.Queue;
+import java.util.Stack;
+
 public class LinkedList0 {
     /**
      * The Node class represents a list node.
@@ -84,6 +87,17 @@ public class LinkedList0 {
         }
     }
 
+    public void reverseLinkedList() {
+        Node pre = null;
+        Node next = null;
+        while (head != null) {
+            next = head.next;
+            head.next = pre;
+            pre = head;
+            head = next;
+        }
+        head = pre;
+    }
 
 
 
@@ -96,6 +110,11 @@ public class LinkedList0 {
         String str = "The contents of the list are:";
         System.out.println(str);
         ll.print();
+        System.out.println();
+        ll.reverseLinkedList();
+        ll.print();
 
     }
+
+
 }

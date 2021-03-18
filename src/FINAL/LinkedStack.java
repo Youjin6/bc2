@@ -98,14 +98,4 @@ class LinkedStack {
         return sBuilder.toString();
     }
 
-    public String findMost() {
-        int count = 1;
-        int countTemp;
-        String popular = top.value;
-        Node curr = top;
-        Node next = top.next;
-        while (curr.next != null) {
-
-        }
-    }
 }

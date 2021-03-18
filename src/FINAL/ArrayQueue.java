@@ -116,7 +116,11 @@ class ArrayQueue
     {
         return size == 0;
     }
-    
+
+    public int getSize() {
+        return size;
+    }
+
     /**
        The toString method returns a 
        readable representation of the 
@@ -124,7 +128,8 @@ class ArrayQueue
        @return  The string representation
        of the contents of the queue.
      */
-    
+
+
     @Override
     public String toString()
     {
@@ -155,6 +160,7 @@ class ArrayQueue
         s = queue.dequeue();
         System.out.println(s);
         System.out.println(queue);
+        System.out.println(queue.size);
     }
 
 }
