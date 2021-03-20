@@ -162,7 +162,7 @@ public class ReadFile {
         String[] values;
         ArrayList<Double> arrayListW = new ArrayList<>();
 
-        String fileName = "data.csv";
+        String fileName = "data1.csv";
         File file = new File(fileName);
         Scanner inputFile = new Scanner(file);
 
